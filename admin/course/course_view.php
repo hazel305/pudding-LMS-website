@@ -18,21 +18,6 @@ while ($is = $result->fetch_object()) {
   $addImgs[] = $is;
 }
 
-// $sql2 = "SELECT * FROM product_options where cid={$cid}";
-// $result2 = $mysqli -> query($sql2);
-//$rs2 = $result2 -> fetch_object();
-
-// while($rs2 = $result2 -> fetch_object()){
-//   $options[]=$rs2;
-// }
-
-// $sql3 = "SELECT * FROM product_image_table where cid={$cid}";
-// $result3 = $mysqli -> query($sql3);
-// //$rs2 = $result2 -> fetch_object();
-
-// while($rs3 = $result3 -> fetch_object()){
-//   $addImgs[]=$rs3;
-// }
 
 ?>
 
@@ -112,9 +97,13 @@ while ($is = $result->fetch_object()) {
               }
               ; ?>
             </span></p>
-          <p class="price content_stt">
-            <?= $rs->price; ?><span>원</span>
-          </p>
+            <div>
+            <span class="price content_stt number">
+            <?= $rs->price; ?>
+          </span>
+          <span>원</span>
+            </div>
+          
         </div>
       </div>
     </div>

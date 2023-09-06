@@ -13,50 +13,50 @@ $level1 = $_GET['level1'] ?? '';
 $level2 = $_GET['level2'] ?? '';
 $level3 = $_GET['level3'] ?? '';
 $act = $_GET['act'] ?? '';
-$price_status = $_GET['price_status']??'';
-$cates11 = $_GET['cate1']??'';
-$cate21 = $_GET['cate2']??'';
-$cate31 = $_GET['cate3']??'';
-$cates1 = $_GET['cate1']??'';
-$cate2 = $_GET['cate2']??'';
-$cate3 = $_GET['cate3']??'';
+$price_status = $_GET['price_status'] ?? '';
+$cates11 = $_GET['cate1'] ?? '';
+$cate21 = $_GET['cate2'] ?? '';
+$cate31 = $_GET['cate3'] ?? '';
+$cates1 = $_GET['cate1'] ?? '';
+$cate2 = $_GET['cate2'] ?? '';
+$cate3 = $_GET['cate3'] ?? '';
 
 
 $search_where = '';
 
 //카테고리 조회
 if (isset($_GET['cate1'])) {
-  if($_GET['cate1'] !== ''){
+  if ($_GET['cate1'] !== '') {
     // $cates1 = $_GET['cate1']??'';
     $query11 = "SELECT name FROM category WHERE cateid='" . $cates1 . " '";
     $result11 = $mysqli->query($query11);
     $rs11 = $result11->fetch_object();
     $cates1 = $rs11->name;
   }
-  
+
 } else {
   $cates1 = '';
 }
 if (isset($_GET['cate2'])) {
-  if($_GET['cate2'] !== ''){
-  // $cate2 = $_GET['cate2']??'';
-  $query22 = "SELECT name FROM category WHERE cateid='" . $cate2 . " '";
-  $result22 = $mysqli->query($query22);
-  $rs22 = $result22->fetch_object();
-  $cate2 = $rs22->name;
-  $cate2 = "/" . $cate2;
+  if ($_GET['cate2'] !== '') {
+    // $cate2 = $_GET['cate2']??'';
+    $query22 = "SELECT name FROM category WHERE cateid='" . $cate2 . " '";
+    $result22 = $mysqli->query($query22);
+    $rs22 = $result22->fetch_object();
+    $cate2 = $rs22->name;
+    $cate2 = "/" . $cate2;
   }
 } else {
   $cate2 = '';
 }
 if (isset($_GET['cate3'])) {
-  if($_GET['cate3'] !== ''){
-  // $cate3 = $_GET['cate3']??'';
-  $query33 = "SELECT name FROM category WHERE cateid='" . $cate3 . " '";
-  $result33 = $mysqli->query($query33);
-  $rs33 = $result33->fetch_object();
-  $cate3 = $rs33->name;
-  $cate3 = "/" . $cate3;
+  if ($_GET['cate3'] !== '') {
+    // $cate3 = $_GET['cate3']??'';
+    $query33 = "SELECT name FROM category WHERE cateid='" . $cate3 . " '";
+    $result33 = $mysqli->query($query33);
+    $rs33 = $result33->fetch_object();
+    $cate3 = $rs33->name;
+    $cate3 = "/" . $cate3;
   }
 } else {
   $cate3 = '';
@@ -64,20 +64,20 @@ if (isset($_GET['cate3'])) {
 
 //난이도 조회
 if (isset($_GET['level1'])) {
-  $level1 = $_GET['level1']??'';
+  $level1 = $_GET['level1'] ?? '';
   $search_where .= " and level LIKE '%{$level1}%'";
   if (isset($_GET['level2'])) {
-    $level2 = $_GET['level2']??'';
+    $level2 = $_GET['level2'] ?? '';
     $search_where .= " or level LIKE '%{$level2}%'";
     if (isset($_GET['level3'])) {
-      $level3 = $_GET['level3']??'';
+      $level3 = $_GET['level3'] ?? '';
       $search_where .= " or level LIKE '%{$level3}%'";
     } else {
       $search_where;
     }
   } else {
     if (isset($_GET['level3'])) {
-      $level3 = $_GET['level3']??'';
+      $level3 = $_GET['level3'] ?? '';
       $search_where .= " or level LIKE '%{$level3}%'";
     } else {
       $search_where;
@@ -105,7 +105,7 @@ if (isset($_GET['level1'])) {
 
 //가격 조회
 if (isset($_GET['price_status'])) {
-  $price_status = $_GET['price_status']??'';
+  $price_status = $_GET['price_status'] ?? '';
   $search_where .= " and price_status like '%{$price_status}%'";
 }
 
@@ -120,7 +120,7 @@ if ($name) {
   $search_where .= " and name like '%{$name}%'";
 }
 
-if(!isset($pagerwhere)){
+if (!isset($pagerwhere)) {
   $pagerwhere = " 1=1";
 }
 
@@ -218,10 +218,11 @@ while ($rs2 = $result2->fetch_object()) {
           <label for="free">무료</label>
         </span>
       </div>
-      <div class="d-flex search_bar">
+      <div class="d-flex search_bar gap-3">
         <label for="search" class="hidden"></label>
         <input type="text" name="name" id="search" class="form-control" placeholder="강의명으로 검색하세요" aria-label="Username">
         <button class="btn btn-primary">검색</button>
+        <button id="resetSearchButton" class="btn btn-dark">전체보기</button>
       </div>
     </div>
   </form>
@@ -307,9 +308,13 @@ while ($rs2 = $result2->fetch_object()) {
               </nav>
 
               <div class="d-flex align-items-end status_box">
-                <span class="price content_stt">
-                  <?= $item->price ?><span> 원</span>
-                </span>
+                <div class="p_box">
+                  <span class="price content_stt number">
+                    <?= $item->price ?>
+                  </span>
+                  <span> 원</span>
+                </div>
+
                 <span class="d-flex flex-column align-items-end status_wrap">
                   <select name="act[<?= $item->cid ?>]" id="act[<?= $item->cid ?>]" class="form-select"
                     aria-label="Default select example" id="selectmenu">
@@ -341,48 +346,48 @@ while ($rs2 = $result2->fetch_object()) {
     <button class="btn btn-primary btn_g all_modify_btn">변경 일괄 수정</button>
   </form>
 
-   <!-- ***------------------------- pagination - 시작 -------------------------*** -->
-   <nav aria-label="Page navigation example" class="d-flex justify-content-center pager">
-      <ul class="pagination coupon_pager">
-        <?php
-          if($pageNumber>1 && $block_num > 1 ){
-            //이전버튼 활성화
-            $prev = ($block_num - 2) * $block_ct + 1;
-            echo "<li class=\"page-item\"><a href=\"?pageNumber=$prev\" class=\"page-link\" aria-label=\"Previous\"><span aria-hidden=\"true\">&lsaquo;</span></a></li>";
-          } else{
-            //이전버튼 비활성화
-            echo "<li class=\"page-item disabled\"><a href=\"\" class=\"page-link\" aria-label=\"Previous\"><span aria-hidden=\"true\">&lsaquo;</span></a></li>";
-          }
+  <!-- ***------------------------- pagination - 시작 -------------------------*** -->
+  <nav aria-label="Page navigation example" class="d-flex justify-content-center pager">
+    <ul class="pagination coupon_pager">
+      <?php
+      if ($pageNumber > 1 && $block_num > 1) {
+        //이전버튼 활성화
+        $prev = ($block_num - 2) * $block_ct + 1;
+        echo "<li class=\"page-item\"><a href=\"?pageNumber=$prev\" class=\"page-link\" aria-label=\"Previous\"><span aria-hidden=\"true\">&lsaquo;</span></a></li>";
+      } else {
+        //이전버튼 비활성화
+        echo "<li class=\"page-item disabled\"><a href=\"\" class=\"page-link\" aria-label=\"Previous\"><span aria-hidden=\"true\">&lsaquo;</span></a></li>";
+      }
 
 
-          for($i=$block_start;$i<=$block_end;$i++){
-            if($pageNumber == $i){
-                //필터 있
-                echo "<li class=\"page-item active\"><a href=\"?cate1=$cates11&cate2=$cate21&cate3=$cate31&level1=$level1&price_status=$price_status&name=$name&pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
-                //필터 없
-                // echo "<li class=\"page-item active\"><a href=\"?pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
-            }else{
-                //필터 있
-                echo "<li class=\"page-item\"><a href=\"?cate1=$cates11&cate2=$cate21&cate3=$cate31&level1=$level1&price_status=$price_status&name=$name&pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
-                //필터 없
-                // echo "<li class=\"page-item\"><a href=\"?pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
-            }
-          }
+      for ($i = $block_start; $i <= $block_end; $i++) {
+        if ($pageNumber == $i) {
+          //필터 있
+          echo "<li class=\"page-item active\"><a href=\"?cate1=$cates11&cate2=$cate21&cate3=$cate31&level1=$level1&price_status=$price_status&name=$name&pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
+          //필터 없
+          // echo "<li class=\"page-item active\"><a href=\"?pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
+        } else {
+          //필터 있
+          echo "<li class=\"page-item\"><a href=\"?cate1=$cates11&cate2=$cate21&cate3=$cate31&level1=$level1&price_status=$price_status&name=$name&pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
+          //필터 없
+          // echo "<li class=\"page-item\"><a href=\"?pageNumber=$i\" class=\"page-link\" data-page=\"$i\">$i</a></li>";
+        }
+      }
 
 
-          if($pageNumber<$total_page && $block_num < $total_block){
-            //다음버튼 활성화
-            $next = $block_num * $block_ct + 1;
-            echo "<li class=\"page-item\"><a href=\"?pageNumber=$next\" class=\"page-link\" aria-label=\"Next\"><span aria-hidden=\"true\">&rsaquo;</span></a></li>";
-          } else{
-            //다음버튼 비활성화
-            echo "<li class=\"page-item disabled\"><a href=\"?pageNumber=$total_page\" class=\"page-link\" aria-label=\"Next\"><span aria-hidden=\"true\">&rsaquo;</span></a></li>";
+      if ($pageNumber < $total_page && $block_num < $total_block) {
+        //다음버튼 활성화
+        $next = $block_num * $block_ct + 1;
+        echo "<li class=\"page-item\"><a href=\"?pageNumber=$next\" class=\"page-link\" aria-label=\"Next\"><span aria-hidden=\"true\">&rsaquo;</span></a></li>";
+      } else {
+        //다음버튼 비활성화
+        echo "<li class=\"page-item disabled\"><a href=\"?pageNumber=$total_page\" class=\"page-link\" aria-label=\"Next\"><span aria-hidden=\"true\">&rsaquo;</span></a></li>";
 
-          }
-        ?>
-      </ul>
-    </nav>
-    <!-- ***------------------------- pagination - 끝 -------------------------*** -->
+      }
+      ?>
+    </ul>
+  </nav>
+  <!-- ***------------------------- pagination - 끝 -------------------------*** -->
 </section>
 </div><!-- content_wrap -->
 </div><!-- wrap -->
@@ -399,6 +404,12 @@ while ($rs2 = $result2->fetch_object()) {
     $(this).text(course_price + ' 원');
   });
 
+
+  $("#resetSearchButton").on("click", function () {
+      var url = new URL(window.location.href);
+      url.searchParams.delete("search");
+      window.location.href = url.href;
+    });
 </script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/pudding-LMS-website/admin/inc/footer.php';

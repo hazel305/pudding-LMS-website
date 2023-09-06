@@ -119,7 +119,13 @@ select,
   position: relative;
   width: 100%;
 }
-.status_box .price {
+/* .status_box .price {
+  position: absolute;
+  right: 220px;
+  width: 200px;
+  text-align: right;
+} */
+.status_box .p_box {
   position: absolute;
   right: 220px;
   width: 200px;
@@ -133,9 +139,6 @@ select,
 }
 .search_bar {
   flex: 1;
-}
-.search_bar input {
-  margin-right: 15px;
 }
 .duration *{
   margin-right: calc(var(--base_unit)*.5);
