@@ -39,15 +39,9 @@ while ($is = $result->fetch_object()) {
             $md_cate = $parts[1];
             $sm_cate = $parts[2];
             ?>
-            <li class="breadcrumb-item"><a href="#">
-                <?= $big_cate ?>
-              </a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              <?= $md_cate ?>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-              <?= $sm_cate ?>
-            </li>
+            <li class="breadcrumb-item"><a href="#"><?= $big_cate ?></a></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $md_cate ?></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $sm_cate ?></li>
           </ol>
         </nav>
       </div>
@@ -109,53 +103,53 @@ while ($is = $result->fetch_object()) {
     </div>
     <div class="course_status d-flex justify-content-between">
       <div class="d-flex flex-column align-items-end status_wrap">
-        <span class="price_btn_wrap">
-          <a href="course_update.php?cid=<?= $rs->cid ?>" class="btn btn-primary btn_g">수정</a>
-          <button class="btn btn-danger">삭제</button>
+        <span class="price_btn_wrap mb-3">
+          <a href="course_update.php?cid=<?=$rs->cid ?>" class="btn btn-primary btn_g">수정</a>
+          <a href="course_delete.php?cid=<?=$rs->cid ?>" class="del_btn btn btn-danger btn_g">삭제</a>
         </span>
       </div>
     </div>
-    <hr>
-    <div class="you_upload mt-5">
-      <div class="youtube">
-        <div class="row justify-content-center">
-          <div class="col-3 youtube_thumb">
-            <P>강의썸네일</P>
-          </div>
-          <div class="col-3 youtube_name">
+    <div class="you_upload mt-3">
+      <div class="youtubeTitleBox">
+        <div class="d-flex gap-3 justify-content-center">
+          <div class="youtubeNameBox">
             <P>강의명</P>
           </div>
-          <div class="col-6 youtube_url">
+          <div class="youtubeUrlBox">
             <P>강의url</P>
           </div>
         </div>
       </div>
-      <div class="youtube_link c_mb">
-        <div class="row justify-content-center">
+      <div class="youtube_link">
           <?php
           if (isset($addImgs)) {
             foreach ($addImgs as $ai) {
               ?>
-              <div class="col-3 youtube_thumb">
+          <div class="youtube_con d-flex gap-3 justify-content-center">
+            <div class="d-flex gap-3 youtubeViewcon">
+              <div class="youtubeViewthumb">
                 <img src="<?= $ai->youtube_thumb ?>" alt="썸네일">
               </div>
-              <div class="col-3 youtube_name">
+              <div class="youtubeViewname">
                 <span>
                   <?= $ai->youtube_name ?>
                 </span>
               </div>
-              <div class="col-6 youtube_url">
-                <a href="<?= $ai->youtube_url ?>">강의영상 바로가기</a>
-              </div>
+            </div>
+            <div class="youtubeViewurl">
+              <a href="<?= $ai->youtube_url ?>" target="blank" class="btn btn-outline-secondary">강의영상 바로가기</a>
+            </div>
+          </div>
               <?php
             }
           }
           ?>
-        </div>
       </div>
     </div>
   </div>
-  <a href="course_list.php" class="btn btn-dark base_mt back_btn">돌아가기</a>
+  <div class="c_button">
+    <a href="course_list.php" class="btn btn-dark base_mt back_btn">돌아가기</a>
+  </div>
 </section>
 </div><!-- content_wrap -->
 </div><!-- wrap -->

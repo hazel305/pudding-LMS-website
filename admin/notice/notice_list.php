@@ -17,7 +17,6 @@ if(isset($_GET['keyword'])) {
   $search_where = " and (nt_title like '%{$keyword}%' or 
   nt_content like '%{$keyword}%')";
 
-
   //조건에맞는 page 수
   $sqlaa = "SELECT COUNT(*) as count FROM notice WHERE (nt_title like '%{$keyword}%' or nt_content like '%{$keyword}%')";
   $result = $mysqli->query($sqlaa);
@@ -26,6 +25,7 @@ if(isset($_GET['keyword'])) {
   }
   $sales_page = $rscaa[0]->count;
 }
+var_dump($sales_page);
 
 $sql = "SELECT * from notice where 1=1";
 // $sql.= $search_where;
@@ -39,9 +39,6 @@ if(!isset($pagerwhere)){
 //필터 없으면 여기서부터 복사! *******
 $pagenationTarget = 'notice'; //pagenation 테이블 명
 $pageContentcount = 10; //페이지 당 보여줄 list 개수
-
-
-
 include_once $_SERVER['DOCUMENT_ROOT'].'/pudding-LMS-website/admin/inc/pager.php';
 $limit = " limit $startLimit, $pageCount"; //select sql문에 .limit 해서 이어 붙이고 결과값 도출하기!
 
@@ -54,18 +51,14 @@ $sqlrc = $sql.$search_where.$order.$limit; //필터 있
 $result = $mysqli -> query($sqlrc);
 while($rs = $result -> fetch_object()){
   $rsc[] = $rs;
-  
+
 } 
-
-
-
-
 ?>
 <section>
     <h2 class="main_tt">공지사항</h2>
     <div class="notice_top shadow_box border d-flex justify-content-between">
       <form class="notice_top_left d-flex align-items-center" action="" method="get">
-        <input type="text" class="input form-control" id="searchInput" placeholder="제목 + 내용 검색" aria-label="Search"
+      <input type="text" class="input form-control" id="searchInput" placeholder="제목 + 내용 검색" aria-label="Search"
          name="keyword">
         <button class="btn btn-dark" id="searchInput">검색</button>              
       </form>
@@ -74,15 +67,15 @@ while($rs = $result -> fetch_object()){
       </div>
     </div>     
     <table class="notice_body table shadow_box border">
-      <colgroup>
-        <col class="col2">
-        <col class="col3">
+      <colgroup>  
+      <col class="col2">
+      <col class="col3">
         <col class="col4">
         <col class="col5">
       </colgroup>
         <thead class="thead-dark">
           <tr>
-            <th scope="col" class="no_mp ">
+          <th scope="col" class="no_mp ">
               <span>제목</span>
             </th>
             <th scope="col" class="no_mp ">
@@ -101,17 +94,17 @@ while($rs = $result -> fetch_object()){
             if(isset($rsc)){
               foreach($rsc as $item){            
             ?>
-          <tr data-prt="<?=$item -> ntid;?>" class="prt">
+            <tr data-prt="<?=$item -> ntid;?>" class="prt">
             <td class="no_mp title">
               <a href="notice_view.php?ntid=<?=$item -> ntid;?>">
                 <?= $item -> nt_title; ?>
               </a>
             </td>
             <td class="no_mp">
-              <?= $item -> nt_regdate;?>
+              <?= date('Y-m-d', strtotime($item -> nt_regdate)) ;?>
             </td>
             <td class="no_mp">
-            <?= $item -> nt_read_cnt;;?>
+            <?= $item -> nt_read_cnt;?>
             </td>
             <td>
               <div class="icon_group">
@@ -129,9 +122,8 @@ while($rs = $result -> fetch_object()){
         } ?>
         </tbody>
       </table>
-  
-    <!-- ***------------------------- pagination - 시작 -------------------------*** -->
-    <nav aria-label="Page navigation example" class="d-flex justify-content-center pager">
+ <!-- ***------------------------- pagination - 시작 -------------------------*** -->
+ <nav aria-label="Page navigation example" class="d-flex justify-content-center pager">
       <ul class="pagination coupon_pager">
         <?php
           if($pageNumber>1 && $block_num > 1 ){
