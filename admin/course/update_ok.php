@@ -16,9 +16,6 @@
     $cate2 =  $_POST['cate2']??'' ;
     $cate3 =  $_POST['cate3']??'' ;
 
-    var_dump($cate1);
-  
-
     $query11 = "SELECT name FROM category WHERE cateid='".$cate1." '";
     $result11 = $mysqli->query($query11); //쿼리실행결과를 $result 할당
     $rs11 = $result11->fetch_object();
@@ -34,7 +31,6 @@
     $rs33 = $result33->fetch_object();
     $cate3 =  $rs33->name;
 
-    
 
     $cid=$_POST['cid'];
     $cate = $cate1.'/'.$cate2.'/'.$cate3;
@@ -117,12 +113,12 @@
       if($youtube_name){
 
         $youtube_url = $_POST['youtube_url'];
-        $upload_youtube_thumb = [];
+        // $upload_youtube_thumb = [];
 
         for($i = 0;$i<count($youtube_url) ; $i++){
 
           // if($_FILES['youtube_thumb']['name'][$i]){
-          if(!empty($youtube_thumb[$i]) && !empty($youtube_name[$i]) && !empty($youtube_url[$i])){
+          if(isset($youtube_thumb[$i]) && isset($youtube_name[$i]) && isset($youtube_url[$i])){
 
             if($_FILES['youtube_thumb']['size'][$i]> 10240000){
               echo "<script>
@@ -190,7 +186,7 @@
 
       echo "<script>
       alert('강의 수정 완료!');
-      //location.href='course_list.php';</script>";
+      location.href='course_list.php';</script>";
     }
     // } 
     catch(Exception $e){

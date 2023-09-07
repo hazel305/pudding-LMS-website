@@ -53,16 +53,6 @@ $(".add_listBtn a").click(function (e) {
   $(".you_upload").append(youtube);
 });
 
-$(".trash_icon").change(function () {
-  if (confirm("정말로 삭제하시겠습니까?")) {
-    if ($(this).filter(":checked")) {
-      $(this).closest(".youtube").hide();
-    }
-  } else {
-    $(this).find(".trash_icon input").prop("checked", false);
-  }
-});
-
 $("#course_form").submit(function () {
   let markupStr = $("#product_detail").summernote("code");
   let content = encodeURIComponent(markupStr);

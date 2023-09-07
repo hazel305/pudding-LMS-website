@@ -227,9 +227,14 @@ while($is = $result -> fetch_object()){
               <label for="delete-youtube<?= $i; ?>"><i class="ti ti-trash bin_icon"></i></label>
               <input type="checkbox" class="delete-youtube hidden" id="delete-youtube<?= $i; ?>" name="delete_youtube[]" value="<?= $ai->l_idx ?>" />
             </div>
-            <div class="youtubeThumbBox">
-              <span>기존파일</span>
-              <img src="<?= $ai -> youtube_thumb?>" alt="">
+
+            <div class="d-flex youtubeThumbBox mt-3 gap-3">
+              <div class="youtubeFT">
+                <span>기존파일</span>
+              </div>
+              <div>
+                <img src="<?= $ai -> youtube_thumb?>" alt="">
+              </div>
             </div>
           </div>
         </div>
@@ -256,6 +261,20 @@ while($is = $result -> fetch_object()){
     </div>
   </form>
 </section>
+<script>
+  $(".trash_icon").change(function () {
+  if (confirm("정말로 삭제하시겠습니까?")) {
+    if ($(this).filter(":checked")) {
+      if($('.youtube').length > 1){
+        $(this).closest(".youtube").hide();
+      }
+    }
+  } else {
+    $(this).find(".trash_icon input").prop("checked", false);
+  }
+});
+
+</script>
 <script src="/pudding-LMS-website/admin/course/js/makeoption.js"></script>
 <?php
  include_once $_SERVER['DOCUMENT_ROOT'].'/pudding-LMS-website/admin/inc/footer.php';

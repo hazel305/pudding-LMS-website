@@ -18,22 +18,6 @@ while ($is = $result->fetch_object()) {
   $addImgs[] = $is;
 }
 
-// $sql2 = "SELECT * FROM product_options where cid={$cid}";
-// $result2 = $mysqli -> query($sql2);
-//$rs2 = $result2 -> fetch_object();
-
-// while($rs2 = $result2 -> fetch_object()){
-//   $options[]=$rs2;
-// }
-
-// $sql3 = "SELECT * FROM product_image_table where cid={$cid}";
-// $result3 = $mysqli -> query($sql3);
-// //$rs2 = $result2 -> fetch_object();
-
-// while($rs3 = $result3 -> fetch_object()){
-//   $addImgs[]=$rs3;
-// }
-
 ?>
 
 <section class="course_view">
@@ -63,36 +47,41 @@ while ($is = $result->fetch_object()) {
       <img src="<?= $rs->thumbnail; ?>" alt="강의 썸네일 이미지" class="border">
       <div class="course_info">
         <div>
-          <h3 class="course_list_title main_stt d-flex align-items-center">
-            <?= $rs->name; ?>
-            <span class="badge rounded-pill blue_bg b-pd">
+          <div class="col-3">
+            <div class="d-flex gap-2 mb-2">
+              <span class="badge rounded-pill blue_bg b-pd">
+                <?php
+                //뱃지 키워드 
+                if (isset($rs->cate)) {
+                  $categoryText = $rs->cate;
+                  $parts = explode('/', $categoryText);
+                  $lastPart = end($parts);
+    
+                  echo $lastPart;
+                }
+                ?>
+              </span>
+              <span class="badge rounded-pill b-pd
               <?php
-              //뱃지 키워드 
-              if (isset($rs->cate)) {
-                $categoryText = $rs->cate;
-                $parts = explode('/', $categoryText);
-                $lastPart = end($parts);
-
-                echo $lastPart;
+              // 뱃지 컬러
+              $levelBadge = $rs->level;
+              if ($levelBadge === '초급') {
+                echo 'yellow_bg';
+              } else if ($levelBadge === '중급') {
+                echo 'green_bg';
+              } else {
+                echo 'red_bg';
               }
               ?>
-            </span>
-            <span class="badge rounded-pill b-pd
-            <?php
-            // 뱃지 컬러
-            $levelBadge = $rs->level;
-            if ($levelBadge === '초급') {
-              echo 'yellow_bg';
-            } else if ($levelBadge === '중급') {
-              echo 'green_bg';
-            } else {
-              echo 'red_bg';
-            }
-            ?>
-            ">
-              <?= $rs->level; ?>
-            </span>
-          </h3>
+              ">
+                <?= $rs->level; ?>
+              </span>
+            </div>
+          </div>
+
+          <h3 class="col-11 course_list_title main_stt d-flex align-items-center">
+            <?= $rs->name; ?></h3>
+
           <p class="base_mt">
             <?= $rs->content; ?>
           </p>
@@ -100,7 +89,7 @@ while ($is = $result->fetch_object()) {
         <div>
           <p class="duration"><i class="ti ti-calendar-event"></i><span>수강기간</span><span><?php if($rs->due == ''){echo '무제한';} else{echo $rs->due;}; ?></span></p>
           <span class="price main_stt number"><?= $rs->price; ?></span>
-          <span>원</span>
+          <span class="main_stt">원</span>
         </div>
       </div>
     </div>
@@ -119,7 +108,7 @@ while ($is = $result->fetch_object()) {
             <P>강의명</P>
           </div>
           <div class="youtubeUrlBox">
-            <P>강의url</P>
+            <P>강의영상</P>
           </div>
         </div>
       </div>
@@ -157,10 +146,6 @@ while ($is = $result->fetch_object()) {
 </div><!-- content_wrap -->
 </div><!-- wrap -->
 <script>
-  //강의 가격 천단위, 변환
-  // let str_price = $('.course_list .price').text();
-  // let course_price = ($.number(str_price));
-  // $('.course_list .price').text(course_price+' 원');
 
   let priceList = $('.price');
 
