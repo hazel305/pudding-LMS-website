@@ -5,7 +5,8 @@ main {
   min-height: 100vh;
   margin: 0;
 }
-.loginlogo > a {
+
+.loginlogo>a {
   background-image: url("../images/adminLogo_2.png");
   width: 368px;
   height: 176px;
@@ -76,7 +77,7 @@ main label {
 }
 
 .popup .bold,
-.popup #daycheck:checked + label {
+.popup #daycheck:checked+label {
   font-weight: bold;
 }
 
@@ -96,5 +97,16 @@ main label {
   background-color: var(--point_red);
   color: #fff;
 }
-.popup #close:hover {background-color: var(--point_red_hover);}
-.popup #close:active {background-color: var(--point_red_focus);}
+
+.popup #close:hover {
+  background-color: var(--point_red_hover);
+}
+
+.popup #close:active {
+  background-color: var(--point_red_focus);
+}
+
+.work dl dd a {
+  text-decoration: underline;
+  color: var(--badge_blue_BG);
+}

@@ -152,7 +152,7 @@ while ($ntrs = $ntresult->fetch_object()) {
         <?php
         if (isset($rsc)) {
           foreach ($rsc as $item) {
-            ?>
+        ?>
             <li>
               <div class="card">
                 <img src="<?= $item->thumbnail ?>" class="card-img-top" alt="강의 썸네일">
@@ -178,19 +178,19 @@ while ($ntrs = $ntresult->fetch_object()) {
                     </p>
                     <?php
                     if ($item->price_status != "무료") {
-                      ?>
+                    ?>
                       <div>
                         <span class="content_tt number red">
                           <?= $item->price ?>
                         </span><span>원</span>
                       </div>
-                      <?php
+                    <?php
                     } else {
-                      ?>
+                    ?>
                       <div>
                         <span class="content_tt red">무료</span>
                       </div>
-                      <?php
+                    <?php
                     }
                     ?>
                   </div>
@@ -200,21 +200,16 @@ while ($ntrs = $ntresult->fetch_object()) {
                 <a href="/pudding-LMS-website/user/course/course_view.php?cid=<?= $item->cid ?>" class="view_btn">상세보기</a>
                 <span>
                   <a href="/pudding-LMS-website/user/members/like_course.php?cid=<?= $item->cid ?>" class="card_like">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32"
-                      height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                     </svg>
                   </a>
                   <a href="/pudding-LMS-website/user/members/add_cart.php?cid=<?= $item->cid ?>" class="card_cart">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="32"
-                      height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                      <path
-                        d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
+                      <path d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
                       <path d="M17 10l-2 -6" />
                       <path d="M7 10l2 -6" />
                     </svg>
@@ -222,7 +217,7 @@ while ($ntrs = $ntresult->fetch_object()) {
                 </span>
               </div>
             </li>
-            <?php
+        <?php
           }
         }
         ?>
@@ -238,7 +233,7 @@ while ($ntrs = $ntresult->fetch_object()) {
           <?php
           if (isset($rc_rsc)) {
             foreach ($rc_rsc as $item) {
-              ?>
+          ?>
               <div class="swiper-slide">
                 <div class="card">
                   <img src="<?= $item->thumbnail ?>" class="card-img-top" alt="강의 썸네일">
@@ -290,19 +285,19 @@ while ($ntrs = $ntresult->fetch_object()) {
                       </p>
                       <?php
                       if ($item->price_status != "무료") {
-                        ?>
+                      ?>
                         <div>
                           <span class="content_tt number red">
                             <?= $item->price ?>
                           </span><span>원</span>
                         </div>
-                        <?php
+                      <?php
                       } else {
-                        ?>
+                      ?>
                         <div>
                           <span class="content_tt red">무료</span>
                         </div>
-                        <?php
+                      <?php
                       }
                       ?>
                     </div>
@@ -312,21 +307,16 @@ while ($ntrs = $ntresult->fetch_object()) {
                   <a href="/pudding-LMS-website/user/course/course_view.php?cid=<?= $item->cid ?>" class="view_btn">상세보기</a>
                   <span>
                     <a href="/pudding-LMS-website/user/members/like_course.php?cid=<?= $item->cid ?>" class="card_like">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32"
-                        height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                       </svg>
                     </a>
                     <a href="/pudding-LMS-website/user/members/add_cart.php?cid=<?= $item->cid ?>" class="card_cart">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="32"
-                        height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                        <path
-                          d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
+                        <path d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
                         <path d="M17 10l-2 -6" />
                         <path d="M7 10l2 -6" />
                       </svg>
@@ -334,7 +324,7 @@ while ($ntrs = $ntresult->fetch_object()) {
                   </span>
                 </div>
               </div>
-              <?php
+          <?php
             }
           }
           ?>
@@ -353,7 +343,7 @@ while ($ntrs = $ntresult->fetch_object()) {
           <?php
           if (isset($new_rsc)) {
             foreach ($new_rsc as $item) {
-              ?>
+          ?>
               <div class="swiper-slide">
                 <div class="card">
                   <img src="<?= $item->thumbnail ?>" class="card-img-top" alt="강의 썸네일">
@@ -405,19 +395,19 @@ while ($ntrs = $ntresult->fetch_object()) {
                       </p>
                       <?php
                       if ($item->price_status != "무료") {
-                        ?>
+                      ?>
                         <div>
                           <span class="content_tt number red">
                             <?= $item->price ?>
                           </span><span>원</span>
                         </div>
-                        <?php
+                      <?php
                       } else {
-                        ?>
+                      ?>
                         <div>
                           <span class="content_tt red">무료</span>
                         </div>
-                        <?php
+                      <?php
                       }
                       ?>
                     </div>
@@ -427,21 +417,16 @@ while ($ntrs = $ntresult->fetch_object()) {
                   <a href="/pudding-LMS-website/user/course/course_view.php?cid=<?= $item->cid ?>" class="view_btn">상세보기</a>
                   <span>
                     <a href="/pudding-LMS-website/user/members/like_course.php?cid=<?= $item->cid ?>" class="card_like">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32"
-                        height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                       </svg>
                     </a>
                     <a href="/pudding-LMS-website/user/members/add_cart.php?cid=<?= $item->cid ?>" class="card_cart">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="32"
-                        height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                        <path
-                          d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
+                        <path d="M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304z" />
                         <path d="M17 10l-2 -6" />
                         <path d="M7 10l2 -6" />
                       </svg>
@@ -449,7 +434,7 @@ while ($ntrs = $ntresult->fetch_object()) {
                   </span>
                 </div>
               </div>
-              <?php
+          <?php
             }
           }
           ?>
@@ -511,19 +496,19 @@ while ($ntrs = $ntresult->fetch_object()) {
             <?php
             if (isset($rvrsc)) {
               foreach ($rvrsc as $item) {
-                ?>
+            ?>
                 <div class="swiper-slide d-flex align-items-center justify-content-between">
                   <div class="review_wrap radius_12 white_bg">
                     <div>
                       <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
-                          <img src="<?php 
-                          if($item->userimg == ''){
-                            echo "/pudding-LMS-website/user/images/profile/default_profile.png";
-                          }else{
-                            echo $item->userimg;
-                          }
-                          ?>" class="userImg shodow_box" alt="프로필 이미지">
+                          <img src="<?php
+                                    if ($item->userimg == '') {
+                                      echo "/pudding-LMS-website/user/images/profile/default_profile.png";
+                                    } else {
+                                      echo $item->userimg;
+                                    }
+                                    ?>" class="userImg shodow_box" alt="프로필 이미지">
                           <p class="review_user">
                             <?= $item->username ?>
                           </p>
@@ -557,7 +542,7 @@ while ($ntrs = $ntresult->fetch_object()) {
                     </div>
                   </div>
                 </div>
-                <?php
+            <?php
               }
             }
             ?>
@@ -574,17 +559,17 @@ while ($ntrs = $ntresult->fetch_object()) {
           <?php
           if (isset($ntrsc)) {
             foreach ($ntrsc as $item) {
-              ?>
+          ?>
               <div class="swiper-slide d-flex align-items-center justify-content-between">
                 <a href="/pudding-LMS-website/user/notice/notice_view.php?ntid=<?= $item->ntid ?>">
-                <span>
-                  <?= $item->nt_title ?>
-                </span><span>
-                  <?= $item->nt_regdate ?>
-                </span>
+                  <span>
+                    <?= $item->nt_title ?>
+                  </span><span>
+                    <?= $item->nt_regdate ?>
+                  </span>
                 </a>
               </div>
-              <?php
+          <?php
             }
           }
           ?>
@@ -611,22 +596,22 @@ while ($ntrs = $ntresult->fetch_object()) {
     <p><span>제작기간</span> : 2023. 09. 08 - 09. 25</p>
     <p><span>특징</span> : html, css, jQuery, <span class="bold">bootstrap, php, mySql</span></p>
     <p>코딩 입문자를 위한 쉽게 떠먹는 <span class="bold">유저 웹 사이트</span></p>
-    <p><span>기획</span> : <a href="#" target="_blank" class="figma"><span>기획/디자인 자료</span><i class="ti ti-brand-figma"></i></a>  |  <span>코드</span> : <a href="#" target="_blank" class="git"><span>깃허브</span><i class="ti ti-brand-github"></i></a></p>
+    <p><span>기획</span> : <a href="#" target="_blank" class="figma"><span>기획/디자인 자료</span><i class="ti ti-brand-figma"></i></a> | <span>코드</span> : <a href="#" target="_blank" class="git"><span>깃허브</span><i class="ti ti-brand-github"></i></a></p>
     <p><span>구현 완료 페이지</span> : 메인, 강의 클래스, 이벤트(쿠폰게임), 장바구니, 로그인, 회원가입, 마이페이지</p>
   </div>
 
   <hr>
 
   <div class="work">
-    <p><span>팀원</span> : 이*정, 김*림, 나*영, 박*인, 성*영</p>
-    <p><span>기획</span> : 이*정, 김*림, 나*영, 박*인</p>
+    <p><span>팀원</span> : 이현정, 김유림, 나서영, 박혜인, 성진영</p>
+    <p><span>기획</span> : 이현정, 김유림, 나서영, 박혜인</p>
     <dl>
       <dt><span>- 디자인 및 구현 -</span></dt>
-      <dd><span>이*정</span> : 마이페이지(내 강의실, 구매내역, 쿠폰함, 수강평), 카카오 로그인</dd>
-      <dd><span>김*림</span> : 메인페이지, 로그인, 회원가입</dd>
-      <dd><span>나*영</span> : 장바구니, 이벤트(쿠폰게임)</dd>
-      <dd><span>박*인</span> : 강의 클래스</dd>
-      <dd><span>성*영 : 기초 틀 디자인, 와이어프레임(구현X)</span></dd>
+      <dd><span>이현정</span> : <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/mypage/mypage.php">마이페이지(내 강의실, 구매내역, 쿠폰함, 수강평)</a>, <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/members/login.php">카카오 로그인</a></dd>
+      <dd><span>김유림</span> : <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/index.php">메인페이지</a>, <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/members/login.php">로그인</a>, <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/members/signup.php">회원가입</a></dd>
+      <dd><span>나서영</span> : <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/cart/cart.php">장바구니</a>, <a href="http://pudding0906.dothome.co.kr/pudding-LMS-website/user/banner/banner.php">이벤트(쿠폰게임)</a></dd>
+      <dd><span>박혜인</span> : <a href="/pudding-LMS-website/user/course/course_list.php">강의 클래스(강의 상세페이지)</a></dd>
+      <dd><span>성진영 : 기초 틀 디자인, 와이어프레임(구현X)</span></dd>
     </dl>
   </div>
 
@@ -636,7 +621,7 @@ while ($ntrs = $ntresult->fetch_object()) {
     <div class="form-check checkboxv">
       <input class="form-check-input" type="checkbox" value="" id="daycheck">
       <label class="form-check-label" for="daycheck">
-      오늘 하루 안보기
+        오늘 하루 안보기
       </label>
     </div>
     <button type="button" id="close" class="border">닫기</button>

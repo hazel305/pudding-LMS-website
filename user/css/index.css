@@ -21,7 +21,7 @@
 }
 
 .swiper-pagination-bullet {
-  background:  #fff;
+  background: #fff;
   border: 2px solid var(--border_grey);
   width: 10px;
   height: 10px;
@@ -59,6 +59,7 @@
   background: #fff;
   margin-bottom: var(--base_unit);
 }
+
 .search.active {
   box-shadow: 0px 0px 0px 4.5px rgba(255, 202, 44, 0.2);
 }
@@ -127,6 +128,7 @@
 .sec3 li {
   height: 280px;
 }
+
 .sec3 li .card img {
   height: 154px;
 }
@@ -166,6 +168,7 @@ p {
   transition: 0.3s;
   opacity: 0;
 }
+
 .card_wrap li:hover .card:after,
 .swiper-slide:hover .card:after {
   opacity: 100%;
@@ -184,10 +187,12 @@ p {
   transition: 0.3s;
   opacity: 0;
 }
+
 .card_wrap li:hover .view_wrap,
 .swiper-slide:hover .view_wrap {
   opacity: 100%;
 }
+
 .view_btn {
   white-space: nowrap;
   border: 1.5px solid #fff;
@@ -199,6 +204,7 @@ p {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
 .view_btn:hover {
   background-color: rgba(255, 255, 255, 0.3);
   color: #ffffff;
@@ -209,6 +215,7 @@ p {
   font-size: 30px;
   font-weight: 300;
 }
+
 .view_wrap span {
   display: flex;
   gap: 10px;
@@ -268,10 +275,12 @@ p {
   position: relative;
   white-space: nowrap;
 }
+
 .sec4 .recom_slide .card img,
 .sec5 .new_slide .card img {
   height: 200px;
 }
+
 ˝ .sec4 .swiper .swiper-slide,
 .sec5 .swiper .swiper-slide {
   width: 350px !important;
@@ -416,42 +425,52 @@ p {
   line-height: 32px;
   margin-top: 50px;
 }
+
 .sec8 .swiper {
   width: 100%;
   height: 500px;
 }
+
 .sec8 .swiper-slide {
   padding: 15px;
   height: auto !important;
   margin-bottom: 0 !important;
 }
+
 .sec8 .review_slide p {
   font-size: 12px;
 }
+
 .reply_content {
   padding: 10px;
   margin-top: 10px;
 }
+
 .review_date {
   font-size: 10px;
 }
+
 .review_name {
   margin-right: 20px;
 }
+
 .review_user {
   margin-right: 15px;
 }
+
 .sec8 .review_wrap {
   width: 100%;
   font-size: 14px;
   padding: 15px;
 }
+
 .sec8 .userImg {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   margin-right: 8px;
 }
+
 .rating {
   color: var(--point_primary);
 }
@@ -508,7 +527,7 @@ p {
 }
 
 .popup .bold,
-.popup #daycheck:checked + label {
+.popup #daycheck:checked+label {
   font-weight: bold;
 }
 
@@ -528,5 +547,16 @@ p {
   background-color: var(--point_red);
   color: #fff;
 }
-.popup #close:hover {background-color: var(--point_red_hover);}
-.popup #close:active {background-color: var(--point_red_focus);}
+
+.popup #close:hover {
+  background-color: var(--point_red_hover);
+}
+
+.popup #close:active {
+  background-color: var(--point_red_focus);
+}
+
+.work dl dd a {
+  text-decoration: underline;
+  color: var(--badge_blue_BG);
+}
